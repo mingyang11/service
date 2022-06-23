@@ -20,6 +20,7 @@ class UserService extends Service {
   // 注册新增用户
   async register(param) {
     const { app } = this;
+    console.log(param);
     try {
       const result = await app.mysql.insert('users', param);
       return {
@@ -29,7 +30,7 @@ class UserService extends Service {
         success: true,
       };
     } catch (error) {
-      console.log(error);
+      console.log(error, 'register');
       return {
         code: 500,
         msg: '请求出错',
